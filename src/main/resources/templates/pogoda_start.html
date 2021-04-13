@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TWOJA ULUBIONA STRONA Z AKTUALNĄ PROGNOZĄ POGODY</title>
+</head>
+<body>
+<form method="GET" action="#" th:action="@{pogoda/}" th:object="${weather}" > 
+<div align="center">
+<h5>Wpisz nazwę miejscowości:
+<input type="text"  th:value="${weather.cityName}" th:field="*{cityName}"/><br></h5>
+<input type="submit" value="Dalej"/>
+
+</form>
+</div>
+</body>
+</html>

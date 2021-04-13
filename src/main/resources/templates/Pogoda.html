@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TWOJA ULUBIONA STRONA Z AKTUALNĄ PROGNOZĄ POGODY</title>
+</head>
+<body>
+<div align="center">
+<h6 style="color:red;">Uwaga! Weather-api nie udostępnia wszystkich miast świata...</h6><br>
+
+Aktualna pogoda w miejscowości<h3 th:text="${cityName}"/>
+<table border="2"><tbody>
+<td><h4 th:text="${todayTemp}" th:align="center"></h4></td>
+<td><h4 th:text="${todayWind}"></h4></td>
+<td><h4 th:text="${todayDesc}"></h4></td></tr></tbody>
+</table>
+<br><br>
+Prognoza na 3 najlbliższe dni
+<br><br>
+<table border="2"><tbody>
+<thead>
+<tr><td>Dzień 1</td><td>Dzień 2</td><td>Dzień 3</td></tr>
+
+<td><h5 th:text="'Temp: '+${d1Temp}"/><br/><h5 th:text="'Wiatr: '+${d1Wind}"/></td>
+<td><h5 th:text="'Temp: '+${d2Temp}"/><br/><h5 th:text="'Wiatr: '+${d2Wind}"/></td>
+<td><h5 th:text="'Temp: '+${d3Temp}"/><br/><h5 th:text="'Wiatr: '+${d3Wind}"/></td>
+</tbody>
+</table>
+</div>
+
+
+<form method="GET" action="#" th:action="@{'/pogoda/'}" th:object="${weather}" > 
+<div align="center">
+<h5>Wpisz nazwę miejscowości:
+<input type="text"  th:value="${weather.cityName}" th:field="*{cityName}"/></h5>
+<input type="submit" value="Dalej"/>
+</div></form>
+<div align="center">
+<h6>Thanks to: https://github.com/robertoduessmann/weather-api - free weather API!</h6></div>
+</body>
+</html>
