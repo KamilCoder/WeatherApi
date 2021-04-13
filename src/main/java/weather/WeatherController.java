@@ -16,9 +16,7 @@ public class WeatherController  {
 
 
 	@GetMapping("/")
-	public String start(Model model,Weather weather) {
-	//weather.setCityName(cityName);
-	//model.addAttribute("cityName", cityName);
+	public String start() {
 	return "pogoda_start";
 	}
 
@@ -36,7 +34,6 @@ public class WeatherController  {
 	URL url = new URL("https://goweather.herokuapp.com/weather/"+weather.getCityName());
 	InputStreamReader reader = new InputStreamReader(url.openStream());
 	weather = new Gson().fromJson(reader, Weather.class);
-	//model.addAttribute("cityName", weather.toUpperCase());
 	model.addAttribute("todayTemp", weather.getTemperature());
 	model.addAttribute("todayWind", weather.getWind());
 	model.addAttribute("todayDesc", weather.getDescription());
