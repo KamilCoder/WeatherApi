@@ -16,8 +16,9 @@ public class WeatherController  {
 
 
 	@GetMapping("/")
-	public String start() {
-	return "pogoda_start";
+	public String start(Weather weather, Model model) {
+	model.addAttribute("cityName", weather.cityName);
+		return "pogoda_start";
 	}
 
 	@PostMapping("/")
